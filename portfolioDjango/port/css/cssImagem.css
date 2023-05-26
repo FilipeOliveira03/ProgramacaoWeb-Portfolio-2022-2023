@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+img {
+    mix-blend-mode: multiply;
+    position: relative;
+    left: 60%;
+    width: 29%;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgb(245, 245, 220);
+}
+
+.index {
+    background-color: rgb(245, 245, 220);
+}
+
+.barraMenu {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 70px;
+    background-color: beige;
+    z-index: 999;
+}
+
+.barraMenu.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.palavrasMenu {
+    margin: 0 auto;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.palavrasMenu a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    z-index: 999;
+}
+
+.palavrasMenu a:hover,
+.dropdown:hover .dropbtn {
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.226);
+    z-index: 999;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    float: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.226);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    letter-spacing: 0px;
+
+}
+
+.dropdown-content a:hover {
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.butaoDarkMode {
+    background-color: black;
+    color: beige;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 100px;
+    position: absolute;
+    right: 5%;
+
+}
+
+.data {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px 5px;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.darkMode, 
+.darkMode .barraMenu,
+.darkMode .dropdown .dropbtn,
+.darkMode body
+ {
+    background-color: #4f5356;
+}
+
+.darkMode .dropdown .dropdown-content,
+.darkMode .dropdown-content a:hover,
+.darkMode .palavrasMenu a:hover {
+    background-color: rgba(0, 0, 0, 0.801);
+}
+
+.darkMode .butaoDarkMode {
+    background-color: beige;
+    color: #4f5356;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 100px;
+    position: absolute;
+    right: 5%;
+    border: 1px solid beige;
+}
+
+.darkMode .imagemReflexiva{
+    border: 2px solid beige;
+}
+
+.darkMode .dropbtn,
+.darkMode .palavrasMenu a, 
+.darkMode .data,
+.darkMode .textoEscrito,
+.darkMode label form label,
+.darkMode .local1,
+.darkMode .local2,
+.darkMode .local3,
+.darkMode .nomeExibido,
+.darkMode .textoCimaImagem{
+    color: beige;
+}
+
+
+.imagemReflexiva {
+    background-image: url("https://source.unsplash.com/q-DJ9XhKkhA");
+    left: 10%;
+    top: 30%;
+    height: 50%;
+    width: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border: 0;
+    scale: 60%;
+    border: 2px solid black;
+}
+
+.caixaTexto {
+    position: fixed;
+    left: 60%;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.textoEscrito{
+    position: fixed;
+    top: 27%;
+    left: 13%;
+}
+
+.textoCimaImagem{
+    position: fixed;
+    top:36%;
+    left: 20%;
+}
+
+.nomeExibido{
+    position: fixed;
+    bottom: 50%;
+    left: 60%;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.local1{
+    position: fixed;
+    top:90%;
+    left: 10%;
+    font-size:xx-large;
+    font-family: fantasy;
+}
+
+.local2{
+    position: fixed;
+    top:90%;
+    left: 80%;
+    font-size:xx-large;
+    font-family: Cursive;
+}
+
+.local3{
+    position: fixed;
+    top:25%;
+    left: 80%;
+    font-size:xx-large;
+    font-family: 'Brush Script MT', cursive;
+}
