@@ -5,11 +5,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+/* nao percebo o porque de o background não funcionar*/
+
 body,
 html {
     height: 100%;
     margin: 0;
-    background-image: url(../img/BG.jpg);
+    background-image: url("/static/img/BG.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -413,7 +415,7 @@ html {
 }
 
 .darkMode {
-    background-image: url(../img/darkBG.jpg);
+    background-image: url("/static/img/darkBG.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

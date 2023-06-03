@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt">
-
+{% load static %}
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
-    <link rel="stylesheet" type="text/css" href="css/cssIndex.css">
+    <link rel="stylesheet" href="{% static 'css/cssIndex.css' %}">
+    <script defer src="{% static 'js/javaIndex.js' %}"></script>
     <title>O meu portfólio</title>
-    <script defer src="js/javaIndex.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 </head>
@@ -39,8 +40,7 @@
                     </button>
                     <div class="dropdown-content">
                         <a href="#tec">Web-Tec</a>
-                        <a href="imagem.html">Imagem reflexiva</a>
-                        <a href="calculadora.html">Calculadora</a>
+                        <a href="">Blog</a>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
         </header>
 
 
-        <img src="img/logo.png" alt="logotipo" style="animation: 2s anim-lineUp ease-out;transition: 1s;">
+        <img src="{% static 'img/logo.png'%}" alt="logotipo" style="animation: 2s anim-lineUp ease-out;transition: 1s;">
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -473,7 +473,7 @@
                     alt="linkedin" class="logotipo">
             </a>
             <a href="https://github.com/FilipeOliveira03">
-                <img src="img/github.png" alt="GitHub" class="logotipo">
+                <img src="{% static 'img/github.png'%}" alt="GitHub" class="logotipo">
             </a>
             <a href="https://www.instagram.com/filipemoliveiira/">
                 <img src="https://www.iconpacks.net/icons/2/free-instagram-logo-icon-3497-thumb.png" alt="insta"
