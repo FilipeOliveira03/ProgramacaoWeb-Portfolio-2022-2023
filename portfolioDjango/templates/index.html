@@ -60,27 +60,17 @@
 
         <div class="scroll1" id="aboutMe">
             <div class="barra hidden"></div><br><br><br>
+
             <div class="hidden">
-                <p>Olá, sê bem vindo ao meu portfólio digital, sou o Filipe Oliveira e sou
-                    um estudante de Engenharia Informática na Universidade Lusofona de Humanidades e Tecnologias.</p>
-                <p>Atualmente estou no 2º ano do curso e sou natural de Vila Franca de Xira, Lisboa, local onde vivo
-                    atualmente.</p>
-                <p>Sempre dou o meu melhor e tento ser o mais profissional possivel em tudo aquilo que faço. Sou
-                    perfeccionista e sou empenhado nos diferentes projetos que tive na minha vida académica, e
-                    futuramente profissional.</p>
-                <p>Desejo, depois de acabar a licenciatura, fazer um mestrado na área de CyberSegurança, e, se for
-                    possivel, realizar erasmus de modo a poder conhecer outras realidades e aprimorar as minhas
-                    aptidões.</p>
-                <p>As minhas competencias são praticamente todas nas áreas de Informática, no entanto tenho esperiencia
-                    de trabalho em gestão de stocks em duas ocasiões.</p>
-                <p>Sou fluente na lingua Portuguesa e com um nível muito elevado da lingua Inglesa. Sei diversas
-                    linguagens de programação, incluindo Kotlin, Java, C, C++, C#, Assembly, HTML, CSS, JavaScript.</p>
-                <p>Sei fazer uma boa gestão do tempo, conseguindo-me organizar bem e conseguir cumprir prazos. Sou muito
-                    resiliente, conseguindo ter calma no caso de haver algum problema.</p>
-                <p>Consigo trabalhar bem em equipa e diria que sou um bom lider, conseguindo organizar bem um grupo de
-                    trabalho de modo a que fique o mais eficiente e mais fácil de trabalhar.</p>
-                <p>Um dos meus maiores defeitos é que apenas provando que a minha opinião está errada, eu mantenho-me
-                    com a minha intuição.</p>
+
+                {% block paragrafo %}
+                    {% for facto in factos %}
+
+                    <p>{{facto.conteudo}}</p>
+
+                    {% endfor %}
+                {% endblock paragrafo %}
+
             </div>
 
 
@@ -111,243 +101,23 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-7336">Fundamentos
-                                de Fisica</a></td>
-                        <td>1º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Cristiane Nunes</td>
-                        <td>10</td>
-                        <td>⭐</td>
-                    </tr>
+                    {% block tr %}
+                        {% for cadeira in cadeiras %}
 
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-7337">Fundamentos
-                                de Programação</a></td>
-                        <td>1º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Pedro Alves</td>
-                        <td>15</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                    </tr>
+                        <tr>
+                            <td><a href="{{cadeira.link_site}}">"{{cadeira.nome}}</a></td>
+                            <td>{{cadeira.ano}}º ano</td>
+                            <td>{{cadeira.semestre}}º Semestre</td>
+                            <td>{{cadeira.etcs}} ects</td>
+                            <td>{{cadeira.coordenador}}</td>
+                            <td>{{cadeira.nota}}</td>
+                            <td> {{cadeira.rating|default:""}}</td>
+                        </tr>
 
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-1656">Matemática
-                                Discreta</a></td>
-                        <td>1º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Teresa Almada</td>
-                        <td>13</td>
-                        <td>⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-1">Matemática
-                                I</a></td>
-                        <td>1º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Aleksandar Mikovic</td>
-                        <td>14</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-7">Sistemas
-                                Digitais</a></td>
-                        <td>1º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Maria Fino</td>
-                        <td>13</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-2091">Álgebra
-                                Linear</a></td>
-                        <td>1º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>5 ects</td>
-                        <td>Teresa Almada</td>
-                        <td>Em curso</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td><a
-                                href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-13397">Algoritmia
-                                e Estruturas de Dados</a></td>
-                        <td>1º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Pedro Alves</td>
-                        <td>14</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-5857">Arquitetura
-                                de Computadores</a></td>
-                        <td>1º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>5 ects</td>
-                        <td>Pedro Serra</td>
-                        <td>13</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a
-                                href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-17267">Competências
-                                Comportamentais</a></td>
-                        <td>1º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>4 ects</td>
-                        <td>Diogo Morais</td>
-                        <td>16</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-498">Linguagens
-                                de Programação I</a></td>
-                        <td>1º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>5 ects</td>
-                        <td>Pedro Serra</td>
-                        <td>14</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-505">Matemática
-                                II</a></td>
-                        <td>1º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>5 ects</td>
-                        <td>Aleksandar Mikovic</td>
-                        <td>12</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a
-                                href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-13398">Arquiteturas
-                                Avançadas de Computadores</a></td>
-                        <td>2º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Pedro Serra</td>
-                        <td>13</td>
-                        <td>⭐⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-8448">Base
-                                de Dados</a></td>
-                        <td>2º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Rui Ribeiro</td>
-                        <td>15</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-898">Linguagens
-                                de Programação II</a></td>
-                        <td>2º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Pedro Alves</td>
-                        <td>15</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-620">Sinais
-                                e Sistemas</a></td>
-                        <td>2º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>João Canto</td>
-                        <td>12</td>
-                        <td>⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-6305">Sistemas
-                                Operativos</a></td>
-                        <td>2º Ano</td>
-                        <td>1º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Sérgio Nunes</td>
-                        <td>14</td>
-                        <td>⭐⭐</td>
-                    </tr>
-
-                    <tr>
-                        <td><a
-                                href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-22512">Engenharia
-                                de Requisitos e Testes</a></td>
-                        <td>2º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Rui Ribeiro</td>
-                        <td>Em curso</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td><a
-                                href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-19082">Computação
-                                gráfica</a></td>
-                        <td>2º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>6 ects</td>
-                        <td>João Carvalho</td>
-                        <td>Em curso</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td><a
-                                href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-11195">Programação
-                                Web</a></td>
-                        <td>2º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Lucío Studer</td>
-                        <td>Em curso</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-1793">Redes
-                                de Computadores</a></td>
-                        <td>2º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Tiago Simas</td>
-                        <td>Em curso</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-7303">Sistemas
-                                de Suporte à Decisão</a></td>
-                        <td>2º Ano</td>
-                        <td>2º Semestre</td>
-                        <td>6 ects</td>
-                        <td>Rui Ribeiro</td>
-                        <td>Em curso</td>
-                        <td></td>
-                    </tr>
+                        {% endfor %}
+                    {% endblock tr %}
                 </tbody>
+
 
 
             </table>
@@ -359,54 +129,19 @@
         <div class="barra hidden"></div><br>
         <h1 class="texto-titulo hidden">Projetos Realizados</h1><br>
         <div class="projetos hidden">
+            {% block proj %}
+                {% for projeto in projetos %}
 
-            <p>O meu primeiro projeto foi um pequeno minesweeper, realizado por mim para a cadeira de fundamentos
-                de
-                programação do 1º ano, do 1º semestre do curso, no ano de 2021. Foi realizado em Kotlin e apenas foi
-                usado o básico da programação. Na altura, não tinha conhecimento do GitHub, por isso não tenho o
-                projeto
-                em mão para poder disponibilizar para poderem ver. </p>
+                    <p>{{projeto.descricao}}
+                    {% if projeto.link_associado %}
+                        <a href="{{ cadeira.link_associado }}">aqui</a>.
+                    {% endif %}
 
-            <p>No 2º semestre, ainda no 1º ano (já em 2022), realizei um projeto em java para a cadeira de
-                Algoritmia e
-                Estruturas de Dados, que era uma organização de
-                vários ficheiros, cheios de dados, tipo uma base de dados. Com os ficheiros organizados,
-                realizava-mos
-                queries para poder retirar informações dos mesmos dados. Foi o meu primeiro projeto em java e
-                acontece o
-                mesmo que o de Kotlin, não tinha acesso ao git e não tenho como mostar o que fiz.</p>
+                    </p>
 
-            <p>Na mesma altura, ou seja, no 2º semestre do 1º ano, tambem realizei um projeto em C para a cadeira
-                de
-                Linguagens de Programação 1, que era um pequeno
-                jogo tabuleiro que era tipo uma "corrida", que, jogando apenas com 2 jogadores e 4 peões cada, se um
-                dos
-                peos de um dos jogadores passase outro de outro jogador, este seria eliminado. Haviam casas que, se
-                o
-                jogador fosse passado nessa mesma casa, ele não perderia. Perdia quem ficasse sem peões no final do
-                jogo. Mais uma vez sem conhecimento do git, não consigo mostrar.</p>
+                {% endfor %}
+            {% endblock proj %}
 
-            <p>O mais recente, realizado no 1º semestre do 2º ano no ano de 2022, realizei eu e mais um colega meu,
-                um
-                projeto em Java para a cadeira de Linguagens de
-                Programação 2, que era um jogo de tabuleiro, com um visualizador gráfico, de 2 a 4 jogadores, em que
-                o
-                objetivo era chegar a casa final. O jogo continha diferentes "espécies", em que cada uma se movia de
-                maneiras diferentes no tabuleiro. Espalhado pelo mapa, haviam alimentos que cada jogador tinha que
-                ingerir e aconteceriam difrentes reações ao alimento. Este projeto está disponivel no git, clicando
-                <a href="https://github.com/FilipeOliveira03/LP2-22109080-22107352" class="texto-link">aqui</a>.
-            </p>
-
-            <p>Tambem no 1º semestre do 2º ano no ano, realizei um projeto para a cadeira de Arquiteturas Avançadas
-                de
-                Computadores, em que consistia em um prototipo de um alarme com um código para poder desbloquear uma
-                porta, em que o utilizador, com 3 tentativas, tinha que inserir um código de 4 digitos. Se
-                acertasse, a
-                porta abria, mas no entanto, se o utilizador falhasse as 3 vezes, o alarme iria tocar até ser
-                desligado.
-                Está disponivel um pequeno video no youtube, clicando <a href="https://youtu.be/I3YupoRZtpY"
-                    class="texto-link">aqui</a>.
-            </p>
 
             <p>
                 Para a cadeira de programação web, do 2º ano do 2º semestre, realizei alguns laboratórios, sendo os
@@ -424,42 +159,25 @@
         <div class="info-site hidden">
             <h1 class="texto-titulo">Tecnologias usadas neste Website</h1>
 
-            <div class="imagem-texto-lado">
-                <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png" alt="LogoHTML"
-                    id="LogoHTML">
-                <p>HyperText Markup Language, mais conhecido por HTML, foi criado em 1991 por Timothy John Berners-Lee.
-                    HTML
-                    é uma linguagem de marcação utilizada na construção de páginas na Web e os seus documentos HTML
-                    podem ser interpretados por navegadores. Nesta página foi usado para, principalmente para a
-                    colocação de
-                    texto e imagens na página.
-                </p>
-            </div>
+            {% block tecn %}
+                {% for tecn in tecnologias %}
+                    <div class="imagem-texto-lado">
+                        {% if tecn.nome == "HTML" %}
+                            <img src="{{tecn.imagem}}" id="LogoHTML">
+                        {% elif tecn.nome == "CSS" %}
+                            <img src="{{tecn.imagem}}" id="LogoCSS">
+                        {% elif tecn.nome == "JavaScript" %}
+                            <img src="{{tecn.imagem}}" id="LogoJS">
+                        {% endif %}
+                        <p>{{tecn.descrição}}</p>
+                    </div>
+                {% endfor %}
+            {% endblock tecn %}
+            
 
-            <div class="imagem-texto-lado">
-                <img src="https://www.shareicon.net/data/512x512/2015/08/31/93779_css3_512x512.png" alt="LogoCSS"
-                    id="LogoCSS">
-                <p>Cascading Style Sheets, mais conhecido por CSS, foi cridado em 1996 por World Wide Web Consortium, a
-                    principal organização da World Wide Web (www). CSS é um mecanismo para adicionar estilos a uma
-                    página
-                    web. Nesta página, foi usado para isso mesmo.</p>
-            </div>
+            
+            
 
-            <div class="imagem-texto-lado">
-                <img src="https://www.freepnglogos.com/uploads/javascript/js-circle-black-design-logo-30.png"
-                    alt="LogoJS" id="LogoJS">
-                <p>JavaScript, tambem conhecido por JS, surgiu em 1995, criado por Brendan Eich. JavaScript
-                    é uma
-                    linguagem
-                    de programação interpretada estruturada, de script em alto nível com
-                    tipagem
-                    dinâmica fraca e multiparadigma, sendo uma das três principais tecnologias da World Wide
-                    Web. Foi
-                    usada
-                    para poder fazer o butão de dark mode, animações, etc
-                </p>
-
-            </div>
 
         </div>
         <br id="contactos">
