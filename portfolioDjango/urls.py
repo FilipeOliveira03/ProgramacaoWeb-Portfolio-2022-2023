@@ -18,5 +18,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-   path('index/', views.index_view),
+   path('', views.index_view),
 ]

@@ -5,7 +5,7 @@ from .models import tecnologia, facto, cadeira, projeto
 
 # Create your views here.
 def index_view(request):
-    return render(request, 'index.html', {
+    return render(request, 'indexBlog.html', {
         'factos': facto.objects.all(),
         'cadeiras': cadeira.objects.all(),
         'tecnologias': tecnologia.objects.all(),

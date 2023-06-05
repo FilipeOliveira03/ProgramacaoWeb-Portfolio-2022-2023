@@ -1,0 +1,20 @@
+<h3>Formulario - Escreva o seu artigo</h3>
+
+<hr>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{form2.as_p}}
+    {% if erro %}
+        <p>{{ erro }}</p>
+    {% endif %}
+    <input type="reset" value="Limpar">
+    <input type="submit" name="form2">
+</form>
+
+<ul>
+    {% for artigo in artigos %}
+
+        <li>{{artido.id}}<a href="{% url 'edita_artigo' artigo_id=artigo.id %}">{{artigo.titulo}}</a> <a href="{% url 'apaga_artigo' artigo_id=artigo.id %}">🗑️</a></li>
+    {% endfor %}
+</ul>
