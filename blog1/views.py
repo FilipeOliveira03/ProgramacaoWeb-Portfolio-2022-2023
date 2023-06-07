@@ -1,10 +1,6 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-
-
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog, Dono, Autor, Artigo, Comentario, Area
-
-from .forms import AutorForm, ArtigoForm
+from .forms import AutorForm, ArtigoForm, ComentarioForm
 
 
 def index_view(request):
@@ -60,7 +56,31 @@ def edita_formulario_artigo_view(request, artigo_id):
     return render(request, 'editaArtigo.html', context)
 
 
-def apaga_tarefa_view(request, artigo_id):
+def apaga_artigo_view(request, artigo_id):
     Artigo.objects.get(id=artigo_id).delete()
     return redirect(request.META.get('HTTP_REFERER'))
+
+
+def incrementar_likes(request, artigo_id):
+    artigo = Artigo.objects.get(id=artigo_id)
+    artigo.likes += 1
+    artigo.save()
+    return redirect(request.META.get('HTTP_REFERER'))
+
+
+def formulario_comentario_view(request):
+    form4 = ComentarioForm()
+
+    if request.method == 'POST':
+        form4 = ComentarioForm(request.POST)
+        if form4.is_valid():
+            form4.save()
+        else:
+            context1 = {'form4': form4, 'erro': 'Campos inválidos'}
+            return render(request, 'novoComentario.html', context1)
+
+    context1 = {'form4': form4}
+    return render(request, 'novoComentario.html', context1)
+
+
 

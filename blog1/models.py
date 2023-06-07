@@ -51,9 +51,8 @@ class Artigo(models.Model):
 
 class Comentario(models.Model):
     criador = models.CharField(max_length=100)
-    titulo = models.CharField(max_length=100)
     texto = models.CharField(max_length=500)
     artigo = models.ForeignKey(Artigo, on_delete=models.CASCADE, related_name='artigos')
 
     def __str__(self):
-        return self.titulo
+        return self.criador

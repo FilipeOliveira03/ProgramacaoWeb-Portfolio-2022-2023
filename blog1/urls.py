@@ -19,6 +19,10 @@ from . import views
 
 urlpatterns = [
    path('', views.index_view),
-   path('calculadora', views.calculadora_view),
-   path('imagem', views.imagem_view),
+   path('novoAutor/', views.formulario_autor_view, name='novo_autor'),
+   path('novoArtigo/', views.formulario_artigo_view, name='novo_artigo'),
+   path('editaArtigo/<int:artigo_id>/', views.edita_formulario_artigo_view, name='edita_artigo'),
+   path('apagaArtigo/<int:artigo_id>', views.apaga_artigo_view, name='apaga_artigo'),
+   path('incrementar_likes/<int:artigo_id>/', views.incrementar_likes, name='incrementar_likes'),
+   path('novoComentario/', views.formulario_comentario_view, name='novo_comentario'),
 ]

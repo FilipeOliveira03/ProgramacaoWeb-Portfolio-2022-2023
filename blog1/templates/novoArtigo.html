@@ -1,20 +1,74 @@
-<h3>Formulario - Escreva o seu artigo</h3>
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
 
-<hr>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Escreva o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{form2.as_p}}
-    {% if erro %}
-        <p>{{ erro }}</p>
-    {% endif %}
-    <input type="reset" value="Limpar">
-    <input type="submit" name="form2">
-</form>
+<body>
+    <h1>Blog - Escreva o seu artigo</h1>
 
-<ul>
-    {% for artigo in artigos %}
+    <hr>
+    <div class="tabela-centro">
+        <br>
+        <div class="pg-principal">
+            <a href="/blog1/#index"><input type="button" value="Pagina inicial"></a><br><br>
+        </div>
 
-        <li>{{artido.id}}<a href="{% url 'edita_artigo' artigo_id=artigo.id %}">{{artigo.titulo}}</a> <a href="{% url 'apaga_artigo' artigo_id=artigo.id %}">🗑️</a></li>
-    {% endfor %}
-</ul>
+        <div class="center-align">
+
+        </div>
+
+
+        <form action="{% url 'novo_artigo' %}" method="post" name="form">
+            {% csrf_token %}
+            <p>{{form2.titulo.label}}</p>
+            <p>{{form2.titulo}}</p>
+            <p>{{form2.texto.label}}</p>
+            <p>{{form2.texto}}</p>
+            <p>{{form2.link.label}}</p>
+            <p>{{form2.link}}</p>
+            <p>{{form2.areas.label}}</p>
+
+            <div class="center-align-check-items">
+                <p>{{form2.areas}}</p>
+            </div>
+
+            <p>{{form2.autor.label}}</p>
+
+            <div class="center-align-check-items">
+                <p>{{form2.autor}}</p>
+            </div>
+            <br>
+
+            {% if erro %}
+            <p>{{ erro }}</p>
+            {% endif %}
+            <div class="center-align">
+                <a href="{% url 'novo_autor' %}"><input type="button" value="Cria Autor"></a>
+                <input type="reset" value="Limpar">
+                <input type="submit" name="form2">
+            </div>
+
+        </form>
+
+        <div class="center-align">
+            <ul>
+                {% for artigo in artigos %}
+
+                <li><a href="{% url 'edita_artigo' artigo_id=artigo.id %}">{{artigo.titulo}}</a> <a
+                        href="{% url 'apaga_artigo' artigo_id=artigo.id %}">🗑️</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+</body>

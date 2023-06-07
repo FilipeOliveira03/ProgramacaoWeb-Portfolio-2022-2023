@@ -6,43 +6,33 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
-    <title>Blog - Blog - Escreva quem é</title>
+    <title>Blog - Adicione um comentário</title>
     <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 </head>
 
 <body>
-    <h1>Blog - Escreva quem é</h1>
+    <h1>Blog - Adicione um comentário</h1>
 
     <hr>
     <div class="tabela-centro">
-        <form action="{% url 'novo_autor' %}" method="post">
+        <form action="" method="post">
             {% csrf_token %}
-            <p>{{form1.nome.label}}</p>
-            <p>{{form1.nome}}</p>
-            <p>{{form1.areas.label}}</p>
-
-            <div class="center-align-check-items">
-                <p>{{form1.areas}}</p>
-            </div>
-
-            <p>{{form1.blog.label}}</p>
-            <p>{{form1.blog}}</p>
+            {{form4.as_p}}
 
             {% if erro %}
             <p>{{ erro }}</p>
             {% endif %}
 
             <div class="center-align">
-                <a href="{% url 'novo_artigo' %}">
+                <a href="/blog1/#index">
                     <button type="button" class="button">Volta atrás</button>
                 </a>
-                <input type="reset" value="Limpar">
-                <input type="submit" name="form1">
+                <input type="reset" value="Limpar" name="form4">
+                <input type="submit" name="form4">
             </div>
             <br>
-
         </form>
     </div>
 

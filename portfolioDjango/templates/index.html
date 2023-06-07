@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 {% load static %}
+
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -28,25 +29,27 @@
             </script>
             <button onclick="clicaDarkMode()" class="butaoDarkMode" id="butaoDarkMode">dark mode</button>
             <nav class="palavrasMenu grid-container" id="menu">
-                <a href="index.html" id="inicioItem" class="item1">Inicio</a>
+                <a href="#inicio" id="inicioItem" class="item1">Inicio</a>
                 <a href="#aboutMe" id="aboutItem" class="item2">About me</a>
                 <a href="#licenciatura" id="uniItem" class="item3">Universidade</a>
                 <a href="#projetos" id="projItem" class="item4">Projetos</a>
                 <a href="#contactos" id="contacItem" class="item5">Contactos</a>
                 <div class="dropdown">
-                    <button class="dropbtn item6"  id="outrosItem">
+                    <button class="dropbtn item6" id="outrosItem">
                         Outros
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
                         <a href="#tec">Web-Tec</a>
+                        <a href="/portfolioDjango/imagem">Imagem reflexiva</a>
+                        <a href="/portfolioDjango/calculadora">Calculadora</a>
                         <a href="">Blog</a>
                     </div>
                 </div>
 
             </nav>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br id='inicio'><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <header>
             <h1 class="hero-text">Futuro programador, atualmente estudante de Engenharia Informática</h1>
@@ -64,11 +67,11 @@
             <div class="hidden">
 
                 {% block paragrafo %}
-                    {% for facto in factos %}
+                {% for facto in factos %}
 
-                    <p>{{facto.conteudo}}</p>
+                <p>{{facto.conteudo}}</p>
 
-                    {% endfor %}
+                {% endfor %}
                 {% endblock paragrafo %}
 
             </div>
@@ -102,19 +105,19 @@
 
                 <tbody>
                     {% block tr %}
-                        {% for cadeira in cadeiras %}
+                    {% for cadeira in cadeiras %}
 
-                        <tr>
-                            <td><a href="{{cadeira.link_site}}">"{{cadeira.nome}}</a></td>
-                            <td>{{cadeira.ano}}º ano</td>
-                            <td>{{cadeira.semestre}}º Semestre</td>
-                            <td>{{cadeira.etcs}} ects</td>
-                            <td>{{cadeira.coordenador}}</td>
-                            <td>{{cadeira.nota}}</td>
-                            <td> {{cadeira.rating|default:""}}</td>
-                        </tr>
+                    <tr>
+                        <td><a href="{{cadeira.link_site}}">{{cadeira.nome}}</a></td>
+                        <td>{{cadeira.ano}}º ano</td>
+                        <td>{{cadeira.semestre}}º Semestre</td>
+                        <td>{{cadeira.etcs}} ects</td>
+                        <td>{{cadeira.coordenador}}</td>
+                        <td>{{cadeira.nota}}</td>
+                        <td> {{cadeira.rating|default:""}}</td>
+                    </tr>
 
-                        {% endfor %}
+                    {% endfor %}
                     {% endblock tr %}
                 </tbody>
 
@@ -130,16 +133,16 @@
         <h1 class="texto-titulo hidden">Projetos Realizados</h1><br>
         <div class="projetos hidden">
             {% block proj %}
-                {% for projeto in projetos %}
+            {% for projeto in projetos %}
 
-                    <p>{{projeto.descricao}}
-                    {% if projeto.link_associado %}
-                        <a href="{{ cadeira.link_associado }}">aqui</a>.
-                    {% endif %}
+            <p>{{projeto.descricao}}
+                {% if projeto.link_associado %}
+                <a href="{{ cadeira.link_associado }}">aqui</a>.
+                {% endif %}
 
-                    </p>
+            </p>
 
-                {% endfor %}
+            {% endfor %}
             {% endblock proj %}
 
 
@@ -160,23 +163,23 @@
             <h1 class="texto-titulo">Tecnologias usadas neste Website</h1>
 
             {% block tecn %}
-                {% for tecn in tecnologias %}
-                    <div class="imagem-texto-lado">
-                        {% if tecn.nome == "HTML" %}
-                            <img src="{{tecn.imagem}}" id="LogoHTML">
-                        {% elif tecn.nome == "CSS" %}
-                            <img src="{{tecn.imagem}}" id="LogoCSS">
-                        {% elif tecn.nome == "JavaScript" %}
-                            <img src="{{tecn.imagem}}" id="LogoJS">
-                        {% endif %}
-                        <p>{{tecn.descrição}}</p>
-                    </div>
-                {% endfor %}
+            {% for tecn in tecnologias %}
+            <div class="imagem-texto-lado">
+                {% if tecn.nome == "HTML" %}
+                <img src="{{tecn.imagem}}" id="LogoHTML">
+                {% elif tecn.nome == "CSS" %}
+                <img src="{{tecn.imagem}}" id="LogoCSS">
+                {% elif tecn.nome == "JavaScript" %}
+                <img src="{{tecn.imagem}}" id="LogoJS">
+                {% endif %}
+                <p>{{tecn.descrição}}</p>
+            </div>
+            {% endfor %}
             {% endblock tecn %}
-            
 
-            
-            
+
+
+
 
 
         </div>

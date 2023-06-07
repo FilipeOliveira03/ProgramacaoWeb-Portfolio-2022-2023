@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cssCalculadora.css' %}">
+    <script defer src="{% static 'js/javaCalculadora.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="index" id="index">
+
+        <div class="barraMenu" id="barra">
+            <p id="data-atual" class="data"></p>
+            <script>
+                const months = ["Janeiro", "Feveriro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                var data = new Date();
+                let month = months[data.getMonth()];
+                var dia = data.getDate();
+                var ano = data.getFullYear();
+                document.getElementById("data-atual").innerHTML = "Data: " + dia + " de " + month + ", " + ano;
+            </script>
+            <nav class="palavrasMenu" id="menu">
+                <button onclick="clicaDarkMode()" class="butaoDarkMode" id="butaoDarkMode">dark mode</button>
+
+                <a href="/portfolioDjango/#inicio" id="inicioLetras">Inicio</a>
+                <a href="/portfolioDjango/#aboutMe">About me</a>
+                <a href="/portfolioDjango/#licenciatura">Universidade</a>
+                <a href="/portfolioDjango/#projetos">Projetos</a>
+                <a href="/portfolioDjango/#contactos">Contactos</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Outros
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/portfolioDjango/#tec">Web-Tec</a>
+                        <a href="/portfolioDjango/imagem">Imagem reflexiva</a>
+                        <a href="/portfolioDjango/calculadora">Calculadora</a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <br><br>
+        <div class="container">
+            <div class="calculator">
+                <div class="display-screen">
+                    <div id="display"></div>
+                </div>
+                <div class="buttons">
+                    <table>
+                        <tr>
+                            <td><button class="btn-operator" id="clear">C</button></td>
+                            <td><button class="btn-operator" id="/">&divide;</button></td>
+                            <td><button class="btn-operator" id="*">&times;</button></td>
+                            <td><button class="btn-operator" id="backspace"><</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-number" id="7">7</button></td>
+                            <td><button class="btn-number" id="8">8</button></td>
+                            <td><button class="btn-number" id="9">9</button></td>
+                            <td><button class="btn-operator" id="-">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-number" id="4">4</button></td>
+                            <td><button class="btn-number" id="5">5</button></td>
+                            <td><button class="btn-number" id="6">6</button></td>
+                            <td><button class="btn-operator" id="+">+</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-number" id="1">1</button></td>
+                            <td><button class="btn-number" id="2">2</button></td>
+                            <td><button class="btn-number" id="3">3</button></td>
+                            <td rowspan="2"><button class="btn-equal" id="equal">=</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-operator" id="(">(</button></td>
+                            <td><button class="btn-number" id="0">0</button></td>
+                            <td><button class="btn-operator" id=")">)</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="javaCalculadora.js"></script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+*{
+  font-family: "Arial", sans-serif;
+  background-color: beige;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 33px;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

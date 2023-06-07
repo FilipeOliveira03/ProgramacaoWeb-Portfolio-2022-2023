@@ -1,20 +1,61 @@
-<h3>Formulario - Edite o seu artigo</h3>
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
 
-<hr>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
 
-<form action="{% url 'edita_artigo' artigo_id %}" method="post">
-    {% csrf_token %}
-    {{form3.as_p}}
-    {% if erro %}
-        <p>{{ erro }}</p>
-    {% endif %}
+<body>
+    <h1>Blog - Edite o seu artigo</h1>
 
-    <a href="{% url 'novo_artigo' %}">
-        <button type="button" class="button">Volta atrás</button>
-    </a>
+    <hr>
+    <div class="tabela-centro">
+        <form action="{% url 'edita_artigo' artigo_id %}" method="post">
+            {% csrf_token %}
+            <p>{{form3.titulo.label}}</p>
+            <p>{{form3.titulo}}</p>
+            <p>{{form3.texto.label}}</p>
+            <p>{{form3.texto}}</p>
+            <p>{{form3.link.label}}</p>
+            <p>{{form3.link}}</p>
+            <p>{{form3.areas.label}}</p>
 
-    <input type="reset" value="Limpar">
-    <input type="submit" name="form3">
+            <div class="center-align-check-items">
+                <p>{{form3.areas}}</p>
+            </div>
 
-</form>
 
+            <p>{{form3.autor.label}}</p>
+
+            <div class="center-align-check-items">
+                <p>{{form3.autor}}</p>
+            </div>
+            <br>
+
+            {% if erro %}
+            <p>{{ erro }}</p>
+            {% endif %}
+
+            <div class="center-align">
+                <a href="{% url 'novo_artigo' %}">
+                    <button type="button" class="button">Volta atrás</button>
+                </a>
+
+                <input type="reset" value="Limpar">
+                <input type="submit" name="form3">
+            </div>
+            <br>
+
+
+        </form>
+    </div>
+
+
+</body>

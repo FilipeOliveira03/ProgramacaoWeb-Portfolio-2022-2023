@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+{% load static %}
+
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/cssIndexBlog.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Title</title>
 </head>
+
 <body>
-<h1>ola</h1>
+    <h1 name="index">Blog</h1>
+    <hr>
+
+    <div>
+        <a href="{% url 'novo_artigo' %}"><input type="button" value="Adiciona post"></a>
+
+
+        {% block publicacoes %}
+
+        {% for artigo in artigos %}
+
+        <h3><a href="{{artigo.link}}">{{artigo.titulo}}</a></h3>
+
+        <form action="{% url 'incrementar_likes' artigo_id=artigo.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="👍"> <span> {{artigo.likes}} likes</span>
+        </form>
+        <br>
+
+
+        <sp>Tags:</sp>
+        {% for area in artigo.areas.all %}
+
+        <sp>{{area.nome}}</sp>
+        {% if not forloop.last %}
+        {% if forloop.revcounter == 2 %}
+        e
+        {% else %}
+        ,
+        {% endif %}
+        {% endif %}
+
+        {% endfor %}
+
+        <p>{{artigo.texto}}</p>
+
+        <sp>Publicado a {{artigo.data}}, por</sp>
+
+        {% for aut in artigo.autor.all %}
+        <sp>{{aut.nome}}</sp>
+        {% if not forloop.last %}
+        {% if forloop.revcounter == 2 %}
+        e
+        {% else %}
+        ,
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <br><br>
+        <a href="{% url 'novo_comentario' %}"><input type="button" value="Cria um comentário"></a>
+
+        {% for coment in comentarios %}
+        {% if coment.artigo == artigo %}
+
+        <p>Criado por: {{coment.criador}}</p>
+        <p>{{coment.texto}}</p>
+
+
+        {% endif %}
+        {% endfor %}
+
+        <br>
+        {% endfor %}
+
+        {% endblock publicacoes %}
+    </div>
+
+
 </body>
+
 </html>

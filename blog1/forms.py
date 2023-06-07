@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Autor, Artigo
+from .models import Autor, Artigo, Comentario
 
 
 class AutorForm(ModelForm):
@@ -28,3 +28,15 @@ class ArtigoForm(ModelForm):
             'areas': forms.CheckboxSelectMultiple,
             'autor': forms.CheckboxSelectMultiple,
         }
+
+
+class ComentarioForm(ModelForm):
+    class Meta:
+        model = Comentario
+        fields = '__all__'
+
+        labels = {
+            'texto': 'Comentário',
+        }
+
+

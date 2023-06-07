@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cssImagem.css' %}">
+    <script defer src="{% static 'js/javaImagem.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body id="index">
+    <div>
+        <div class="barraMenu" id="barra">
+            <p id="data-atual" class="data"></p>
+            <script>
+                const months = ["Janeiro","Feveriro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+                var data = new Date();
+                let month = months[data.getMonth()];
+                var dia = data.getDate();
+                var ano = data.getFullYear();
+                document.getElementById("data-atual").innerHTML = "Data: " + dia + " de " + month + ", " + ano;
+            </script>
+            <nav class="palavrasMenu" id="menu">
+                <button onclick="clicaDarkMode()" class="butaoDarkMode" id="butaoDarkMode">dark mode</button>
+
+                <a href="/portfolioDjango/#inicio" id="inicioLetras">Inicio</a>
+                <a href="/portfolioDjango/#aboutMe">About me</a>
+                <a href="/portfolioDjango/#licenciatura">Universidade</a>
+                <a href="/portfolioDjango/#projetos">Projetos</a>
+                <a href="/portfolioDjango/#contactos">Contactos</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Outros
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/portfolioDjango/#tec">Web-Tec</a>
+                        <a href="/portfolioDjango/imagem">Imagem reflexiva</a>
+                        <a href="/portfolioDjango/calculadora">Calculadora</a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+        
+    </div>
+    
+    <h1 id="textoDigitado" class="textoEscrito"></h1>
+    <p class="textoCimaImagem">Passe o rato na imagem para aumentar</p>
+    <div class="imagemReflexiva" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+    </div>
+    <label for="texto" class="caixaTexto">
+        <form onsubmit="return false;">
+            <label for="texto">Digite o quem voce pensa quando vê esta imagem:</label><br>
+            <input type="text" id="texto"><br>
+            <button onclick="exibirTexto()">Enviar</button>
+        </form>
+        
+    </label>
+
+    <form class="nomeExibido">
+		<label for="nome">Digite seu nome, será exibido em 3 locais diferentes!</label><br>
+		<input type="text" id="nome" name="nome"><br>
+		<button type="button" onclick="exibirNome()">Enviar</button>
+	</form>
+
+
+	<div class="local1" id="local1"></div>
+	<div class="local2" id="local2"></div>
+	<div class="local3" id="local3"></div>
+
+	<script>
+		function exibirNome() {
+			var nome = document.getElementById("nome").value;
+            if(nome != ""){
+                document.getElementById("local1").innerHTML = "Olá, " + nome + "!";
+			document.getElementById("local2").innerHTML = "Seu nome é: " + nome;
+			document.getElementById("local3").innerHTML = "Bem-vindo, " + nome + "!";
+            }
+			
+		}
+	</script>
+
+</body>
+
+</html>
