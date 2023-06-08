@@ -1,16 +1,37 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
 
-{% block login %}
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
 
-    {% if message %}
+<body>
+    <div class="tabela-centro">
+        <h1>Login</h1>
+
+        {% block login %}
+
+        {% if message %}
         <p>{{ message }}</p>
-    {% endif%}
+        {% endif%}
 
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        <p><input type="text" name = username placeholder="Username"></p>
-        <p><input type="password" name = password placeholder="Password"></p>
-        <p><input type="submit"></p>
-        <p><input type="button" value="Portfolio"></p>
-    </form>
-{% endblock %}
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <p><input type="text" name=username placeholder="Username"></p>
+            <p><input type="password" name=password placeholder="Password"></p>
+            <p><input type="submit"></p>
+            <a href="/portfolioDjango/#inicio">
+                <p><input type="button" value="Portfolio"></p>
+            </a>
+
+        </form>
+        {% endblock %}
+    </div>
+</body>

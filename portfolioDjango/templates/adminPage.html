@@ -1,13 +1,43 @@
-{% block admin %}
-{% csrf_token %}
-<h1>Admin</h1>
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
 
-<p>Bem vindo, aqui pode escolher o que vai querer alterar:</p>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
 
-<p><input type="button" value="Cadeiras"></p>
-<p><input type="button" value="Factos"></p>
-<p><input type="button" value="Projetos"></p>
+<body class="tabela-centro">
+    {% block admin %}
+    {% csrf_token %}
+    <br>
+    <h1>Admin</h1>
 
-<a href="{% url 'logout' %}"><input type="button" value="Log Out"></a>
+    <hr>
 
-{% endblock %}
+    <p>Bem vindo, aqui pode escolher o que vai querer alterar:</p>
+
+    <a href="{% url 'nova_cadeira' %}">
+        <p><input type="button" value="Cadeiras"></p>
+    </a>
+
+    <a href="{% url 'novo_facto' %}">
+        <p><input type="button" value="Factos"></p>
+    </a>
+
+    <a href="{% url 'novo_projeto' %}">
+        <p><input type="button" value="Projetos"></p>
+    </a>
+
+    <div class="center-align">
+        <a href="{% url 'logout' %}"><input type="button" value="Log Out"></a>
+    </div>
+    <br>
+
+    {% endblock %}
+</body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="tabela-centro">
+        <br>
+
+    <form action="{% url 'novo_projeto' %}" method="post">
+
+        <h1>Projetos - Adicione, edite ou elimine</h1>
+
+        <hr>
+
+        {% csrf_token %}
+        <p>{{form7.titulo.label}}</p>
+        <p>{{form7.titulo}}</p>
+        <p>{{form7.data.label}}</p>
+        <p>{{form7.data}}</p>
+        <p>{{form7.descricao.label}}</p>
+        <p>{{form7.descricao}}</p>
+        <p>{{form7.cadeira.label}}</p>
+        <p>{{form7.cadeira}}</p>
+        <p>{{form7.portfolio.label}}</p>
+        <p>{{form7.portfolio}}</p>
+        <p>{{form7.link_associado.label}}</p>
+        <p>{{form7.link_associado}}</p>
+
+
+        <div class="center-align">
+            <a href="{% url 'index_login' %}">
+                <button type="button" class="button">Volta atrás</button>
+            </a>
+
+            <input type="reset" value="Limpar">
+            <input type="submit" name="form7">
+        </div>
+
+    </form>
+    <div class="center-align">
+        <ul>
+        {% for projeto in projetos %}
+
+        <li><a href="{% url 'edita_projeto' projeto_id=projeto.id %}">{{projeto.titulo}}</a> <a
+                href="{% url 'apaga_projeto' projeto_id=projeto.id %}">🗑️</a></li>
+
+        {% endfor %}
+    </ul>
+    </div>
+    </div>
+
+
+</body>

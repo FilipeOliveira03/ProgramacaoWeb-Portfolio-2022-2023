@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+<br>
+
+<body>
+    <div class="tabela-centro">
+        <h1>Cadeiras - Edite a cadeira</h1>
+
+        <hr>
+
+        <form action="{% url 'edita_cadeira' cadeira_id %}" method="post">
+            {% csrf_token %}
+            <p>{{form8.nome.label}}</p>
+            <p>{{form8.nome}}</p>
+            <p>{{form8.link_site.label}}</p>
+            <p>{{form8.link_site}}</p>
+            <p>{{form8.ano.label}}</p>
+            <p>{{form8.ano}}</p>
+            <p>{{form8.semestre.label}}</p>
+            <p>{{form8.semestre}}</p>
+            <p>{{form8.etcs.label}}</p>
+            <p>{{form8.etcs}}</p>
+            <p>{{form8.coordenador.label}}</p>
+            <p>{{form8.coordenador}}</p>
+            <p>{{form8.nota.label}}</p>
+            <p>{{form8.nota}}</p>
+            <p>{{form8.rating.label}}</p>
+            <p>{{form8.rating}}</p>
+            <p>{{form8.licenciatura.label}}</p>
+            <p>{{form8.licenciatura}}</p>
+            <br>
+
+
+            {% if erro %}
+            <p>{{ erro }}</p>
+            {% endif %}
+
+            <div class="center-align">
+                <a href="{% url 'nova_cadeira' %}">
+                    <button type="button" class="button">Volta atrás</button>
+                </a>
+
+                <input type="reset" value="Limpar">
+                <input type="submit" name="form8">
+            </div>
+
+
+
+
+        </form>
+
+        <br>
+    </div>
+
+
+</body>

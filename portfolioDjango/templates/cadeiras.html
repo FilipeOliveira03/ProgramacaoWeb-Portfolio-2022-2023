@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="tabela-centro">
+        <br>
+
+        <form action="{% url 'nova_cadeira' %}" method="post">
+
+            <h1>Cadeiras - Adicione, edite ou elimine cadeiras</h1>
+
+            <hr>
+
+            {% csrf_token %}
+            <p>{{form5.nome.label}}</p>
+            <p>{{form5.nome}}</p>
+            <p>{{form5.link_site.label}}</p>
+            <p>{{form5.link_site}}</p>
+            <p>{{form5.ano.label}}</p>
+            <p>{{form5.ano}}</p>
+            <p>{{form5.semestre.label}}</p>
+            <p>{{form5.semestre}}</p>
+            <p>{{form5.etcs.label}}</p>
+            <p>{{form5.etcs}}</p>
+            <p>{{form5.coordenador.label}}</p>
+            <p>{{form5.coordenador}}</p>
+            <p>{{form5.nota.label}}</p>
+            <p>{{form5.nota}}</p>
+            <p>{{form5.rating.label}}</p>
+            <p>{{form5.rating}}</p>
+            <p>{{form5.licenciatura.label}}</p>
+            <p>{{form5.licenciatura}}</p>
+            <br>
+
+            <div class="center-align">
+                <a href="{% url 'index_login' %}">
+                    <button type="button" class="button">Volta atrás</button>
+                </a>
+
+                <input type="reset" value="Limpar">
+                <input type="submit" name="form5">
+            </div>
+
+
+        </form>
+
+        <div class="center-align">
+            <ul>
+                {% for cadeira in cadeiras %}
+
+                <li><a href="{% url 'edita_cadeira' cadeira_id=cadeira.id %}">{{cadeira.nome}}</a> <a
+                        href="{% url 'apaga_cadeira' cadeira_id=cadeira.id %}">🗑️</a></li>
+
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+</body>

@@ -23,5 +23,14 @@ urlpatterns = [
     path('imagem', views.imagem_view),
     path('indexLogin', views.index_login_view, name='index_login'),
     path('login', views.login_view, name='login'),
-    path('logout', views.logout_view, name='logout')
+    path('logout', views.logout_view, name='logout'),
+    path('cadeira/', views.formulario_cadeira_view, name='nova_cadeira'),
+    path('facto/', views.formulario_facto_view, name='novo_facto'),
+    path('projeto/', views.formulario_projeto_view, name='novo_projeto'),
+    path('editaCadeira/<int:cadeira_id>/', views.update_cadeira_view, name='edita_cadeira'),
+    path('editaFacto/<int:facto_id>/', views.update_facto_view, name='edita_facto'),
+    path('editaProjeto/<int:projeto_id>/', views.update_projeto_view, name='edita_projeto'),
+    path('apagaCadeira/<int:cadeira_id>', views.delete_cadeira_view, name='apaga_cadeira'),
+    path('apagaFacto/<int:facto_id>', views.delete_facto_view, name='apaga_facto'),
+    path('apagaProjeto/<int:projeto_id>', views.delete_projeto_view, name='apaga_projeto'),
 ]

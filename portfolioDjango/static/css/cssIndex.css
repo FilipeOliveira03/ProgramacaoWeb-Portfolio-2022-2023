@@ -5,27 +5,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-body,
-html {
+body{
     height: 100%;
     margin: 0;
     background-image: url("/static/img/BG.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}
-
-img {
-    mix-blend-mode: multiply;
-    position: relative;
-    left: 60%;
-    width: 29%;
-}
-
-html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .barraMenu {

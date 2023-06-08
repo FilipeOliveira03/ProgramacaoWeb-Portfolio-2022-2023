@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+<br>
+
+<body class="tabela-centro">
+
+
+    <h1>Factos - Edite o facto</h1>
+
+    <hr>
+
+    <form action="{% url 'edita_facto' facto_id %}" method="post">
+        {% csrf_token %}
+        <p>{{form9.as_p}}</p>
+
+
+        {% if erro %}
+        <p>{{ erro }}</p>
+        {% endif %}
+
+        <div class="center-align">
+            <a href="{% url 'novo_facto' %}">
+                <button type="button" class="button">Volta atrás</button>
+            </a>
+
+            <input type="reset" value="Limpar">
+            <input type="submit" name="form9">
+        </div>
+
+
+    </form>
+
+    <br>
+</body>

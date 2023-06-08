@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+<br>
+
+<body class="tabela-centro">
+
+
+    <h1>Projeto - Edite o projeto</h1>
+
+    <hr>
+
+    <form action="{% url 'edita_projeto' projeto_id %}" method="post">
+        {% csrf_token %}
+        <p>{{form10.titulo.label}}</p>
+        <p>{{form10.titulo}}</p>
+        <p>{{form10.data.label}}</p>
+        <p>{{form10.data}}</p>
+        <p>{{form10.descricao.label}}</p>
+        <p>{{form10.descricao}}</p>
+        <p>{{form10.cadeira.label}}</p>
+        <p>{{form10.cadeira}}</p>
+        <p>{{form10.portfolio.label}}</p>
+        <p>{{form10.portfolio}}</p>
+        <p>{{form10.link_associado.label}}</p>
+        <p>{{form10.link_associado}}</p>
+
+
+        {% if erro %}
+        <p>{{ erro }}</p>
+        {% endif %}
+
+        <div class="center-align">
+            <a href="{% url 'novo_projeto' %}">
+                <button type="button" class="button">Volta atrás</button>
+            </a>
+
+            <input type="reset" value="Limpar">
+            <input type="submit" name="form10">
+        </div>
+
+
+        <br>
+
+    </form>
+</body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Blog - Blog - Edite o seu artigo</title>
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="tabela-centro">
+    <br>
+
+    <form action="{% url 'novo_facto' %}" method="post">
+
+        <h1>Factos - Adicione, edite ou elimine factos</h1>
+
+        <hr>
+
+        {% csrf_token %}
+        <p>{{form6.titulo.label}}</p>
+        <p>{{form6.titulo}}</p>
+        <p>{{form6.conteudo.label}}</p>
+        <p>{{form6.conteudo}}</p>
+        <p>{{form6.portfolio.label}}</p>
+        <p>{{form6.portfolio}}</p>
+        <br>
+
+        <div class="center-align">
+            <a href="{% url 'index_login' %}">
+                <button type="button" class="button">Volta atrás</button>
+            </a>
+
+            <input type="reset" value="Limpar">
+            <input type="submit" name="form6">
+        </div>
+
+
+    </form>
+    <div class="center-align">
+        <ul>
+        {% for facto in factos %}
+
+        <li><a href="{% url 'edita_facto' facto_id=facto.id %}">{{facto.titulo}}</a> <a
+                href="{% url 'apaga_facto' facto_id=facto.id %}">🗑️</a></li>
+
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+
+
+</body>

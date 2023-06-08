@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -45,7 +46,7 @@ class cadeira(models.Model):
     semestre = models.IntegerField()
     etcs = models.IntegerField()
     coordenador = models.CharField(max_length=100)
-    nota =  models.CharField(max_length=20)
+    nota = models.CharField(max_length=20)
     rating = models.CharField(max_length=10, null=True, blank=True)
     licenciatura = models.ForeignKey(licenciatura, on_delete=models.CASCADE, related_name='cadeiras')
 
