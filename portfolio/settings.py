@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 MEDIA_URL = '/img/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'img')
 
+LOGIN_URL = 'users:login'
 # Application definition
 
 INSTALLED_APPS = [
