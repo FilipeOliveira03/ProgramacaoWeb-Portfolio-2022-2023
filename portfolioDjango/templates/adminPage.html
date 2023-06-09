@@ -6,13 +6,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
-    <title>Blog - Blog - Edite o seu artigo</title>
+    <title>Admin page</title>
     <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 </head>
 
-<body class="tabela-centro">
+<body>
+<div class="tabela-centro">
     {% block admin %}
     {% csrf_token %}
     <br>
@@ -40,4 +41,6 @@
     <br>
 
     {% endblock %}
+</div>
+
 </body>
