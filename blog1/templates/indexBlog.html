@@ -7,7 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
     <title>Blog</title>
-    <link rel="stylesheet" href="{% static 'css/cssIndexBlog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cssGeral.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 </head>
@@ -16,42 +16,61 @@
     <h1 name="index">Blog</h1>
     <hr>
 
-    <div>
-        <a href="{% url 'novo_artigo' %}"><input type="button" value="Adiciona post"></a>
+    <div class="tabela-centro">
+        <a href="/#inicio">
+            <p><input type="button" value="Portfolio"></p>
+        </a>
+        <div class="center-align">
+            <a href="{% url 'novo_artigo' %}"><input type="button" value="Adiciona post"></a>
+        </div>
+
 
 
         {% block publicacoes %}
 
         {% for artigo in artigos %}
 
-        <h3><a href="{{artigo.link}}">{{artigo.titulo}}</a></h3>
-
-        <form action="{% url 'incrementar_likes' artigo_id=artigo.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="👍"> <span> {{artigo.likes}} likes</span>
-        </form>
-        <br>
 
 
-        <sp>Tags:</sp>
+        <hr>
+
+        <h3 class="titulo"><a href="{{artigo.link}}">{{artigo.titulo}}</a></h3>
+
+        <div class="center-align-no-space tags">
+            <sp>Tags: </sp>
         {% for area in artigo.areas.all %}
 
-        <sp>{{area.nome}}</sp>
+        <sp> {{area.nome}} </sp>
         {% if not forloop.last %}
         {% if forloop.revcounter == 2 %}
-        e
+         <sp> , </sp>
         {% else %}
-        ,
+         <sp>, </sp>
         {% endif %}
         {% endif %}
 
         {% endfor %}
+        </div>
 
-        <p>{{artigo.texto}}</p>
 
-        <sp>Publicado a {{artigo.data}}, por</sp>
+        <br>
+        <br>
+
+        <div class="center-align-no-space">
+          <form action="{% url 'incrementar_likes' artigo_id=artigo.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="👍" class="like"> <span class="like-texto"> {{artigo.likes}} likes</span>
+        </form>
+        </div>
+        <br>
+
+        <p style="color: black">{{artigo.texto}}</p>
+
+        <div class="center-align-no-space">
+<sp>Publicado a {{artigo.data}}, por</sp>
 
         {% for aut in artigo.autor.all %}
+
         <sp>{{aut.nome}}</sp>
         {% if not forloop.last %}
         {% if forloop.revcounter == 2 %}
@@ -61,15 +80,20 @@
         {% endif %}
         {% endif %}
         {% endfor %}
+        </div>
+
 
         <br><br>
-        <a href="{% url 'novo_comentario' %}"><input type="button" value="Cria um comentário"></a>
+        <div class="center-align">
+            <a href="{% url 'novo_comentario' %}"><input type="button" value="Cria um comentário"></a>
+        </div>
+
 
         {% for coment in comentarios %}
         {% if coment.artigo == artigo %}
 
-        <p>Criado por: {{coment.criador}}</p>
-        <p>{{coment.texto}}</p>
+        <p>{{coment.criador}} : {{coment.texto}}</p>
+
 
 
         {% endif %}

@@ -13,7 +13,7 @@ html {
     background-size: cover;
 }
 
-h1 {
+h1, .titulo  {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,6 +75,12 @@ button:hover {
 
 }
 
+.center-align-no-space{
+  display: flex;
+  align-items: center;
+    justify-content:  center;
+}
+
 .pg-principal {
   display: flex;
   align-items: center;
@@ -107,4 +113,26 @@ ul li {
 a {
   text-decoration: none;
   color: #333;
+}
+
+.tags{
+    font-size: 20px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.like{
+background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.like-texto{
+
+font-size: 16px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
