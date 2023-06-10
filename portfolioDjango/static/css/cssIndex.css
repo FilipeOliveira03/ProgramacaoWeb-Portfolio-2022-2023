@@ -738,3 +738,15 @@ html {
     }
 
 }
+
+.iframe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
